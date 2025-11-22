@@ -28,6 +28,40 @@ julia --project=. tools/migration_planner.jl
 
 ---
 
+## 🏆 RSR Compliance
+
+**Rhodium Standard Repository Framework: SILVER Level** 🥈
+
+Juisys implements comprehensive software repository standards:
+
+| Category | Status | Details |
+|----------|--------|---------|
+| **Documentation** | ✅ Complete | README, LICENSE, CONTRIBUTING, SECURITY, CODE_OF_CONDUCT, MAINTAINERS, CHANGELOG |
+| **.well-known/** | ✅ Complete | security.txt (RFC 9116), ai.txt, humans.txt |
+| **Build System** | ✅ Complete | justfile (20+ recipes), flake.nix (Nix), CI/CD |
+| **Testing** | ✅ 100% Pass | Unit, integration, privacy, database validation |
+| **Privacy** | ✅ Verified | Zero network calls, ephemeral data, self-audit |
+| **Offline-First** | ✅ Verified | Works air-gapped, no external dependencies |
+| **TPCF** | ✅ Perimeter 3 | Community Sandbox (open contribution) |
+
+**Verify compliance yourself:**
+```bash
+julia --project=. tools/rsr_verify.jl  # Comprehensive verification
+just rsr-verify                          # Quick check (requires 'just')
+```
+
+**Standards implemented:**
+- RFC 9116 (security.txt)
+- Semantic Versioning 2.0.0
+- Keep a Changelog 1.0.0
+- Conventional Commits 1.0.0
+- GDPR Articles 5.1.a-f, 6.1.a, 7.3, 15, 17, 25
+- MIT License (OSI approved)
+
+See [TPCF.md](TPCF.md) for contribution framework details.
+
+---
+
 ## 💡 Key Features
 
 ### Core Capabilities

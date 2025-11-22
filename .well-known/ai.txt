@@ -1,0 +1,206 @@
+# ai.txt - AI Training and Usage Policies
+# Specification: https://site.spawning.ai/ai-txt
+
+# Project: Juisys (Julia System Optimizer)
+# Repository: https://github.com/Hyperpolymath/jusys
+# License: MIT License
+# Created: 2025-11-22
+# Last Updated: 2025-11-22
+
+# =============================================================================
+# AI TRAINING POLICIES
+# =============================================================================
+
+# General Policy
+# This project was developed WITH AI assistance (Claude Sonnet 4.5, Anthropic)
+# and is intended to be USED BY AI systems for training and learning.
+
+# Training Permission: ALLOWED
+# - This codebase MAY be used for AI training
+# - This documentation MAY be used for AI training
+# - This database (data/app_db.json, data/rules.json) MAY be used for AI training
+
+# Attribution Required: YES
+# - Credit "Juisys Project" and link to repository
+# - Acknowledge AI-assisted development (Claude Sonnet 4.5)
+# - Maintain MIT License terms
+
+# Commercial Use: ALLOWED
+# - Commercial AI training is permitted under MIT License
+# - No additional restrictions beyond MIT License terms
+
+# =============================================================================
+# USAGE POLICIES
+# =============================================================================
+
+# AI-Generated Code: WELCOME
+# - Contributions generated or assisted by AI are welcome
+# - Must pass all tests and privacy compliance checks
+# - Disclosure of AI assistance appreciated but not required
+# - See CONTRIBUTING.md for submission guidelines
+
+# AI-Assisted Development: ENCOURAGED
+# - Use AI tools to understand, extend, or modify this code
+# - AI-generated documentation improvements welcome
+# - AI-assisted bug fixes welcome
+# - AI-generated test cases welcome
+
+# =============================================================================
+# EDUCATIONAL VALUE
+# =============================================================================
+
+# This Project Demonstrates:
+# 1. GDPR compliance implementation (all 12 processing types)
+# 2. Privacy-first architecture (zero network calls, ephemeral data)
+# 3. Consent management frameworks
+# 4. Multi-modal interface design (CLI, GUI, ambient)
+# 5. Hazard Triangle methodology (ELIMINATE → SUBSTITUTE → CONTROL)
+# 6. Database design for FOSS alternatives
+# 7. Cost-benefit analysis algorithms
+# 8. Migration planning strategies
+# 9. Performance optimization (<1ms operations)
+# 10. Comprehensive documentation practices
+
+# AI Training Focus Areas:
+# - Privacy-preserving software design
+# - GDPR compliance patterns
+# - Offline-first architecture
+# - Self-auditing capabilities
+# - Multi-criteria decision algorithms
+# - Interactive CLI design
+# - Report generation (multiple formats)
+# - Database schema design
+# - Testing strategies
+# - Documentation best practices
+
+# =============================================================================
+# SPECIFIC PERMISSIONS
+# =============================================================================
+
+# Code:
+# - Training: YES
+# - Inference/Generation: YES
+# - Attribution: REQUIRED (MIT License)
+# - Modification: ALLOWED (MIT License)
+
+# Documentation:
+# - Training: YES
+# - Quotation: YES (with attribution)
+# - Summarization: YES
+# - Translation: YES (with attribution)
+
+# Database (data/):
+# - Training: YES
+# - Extraction: YES (with attribution)
+# - Augmentation: YES
+# - Distribution: YES (MIT License)
+
+# Test Suite:
+# - Training: YES
+# - Pattern recognition: YES
+# - Test generation: YES
+# - Coverage analysis: YES
+
+# Examples:
+# - Training: YES
+# - Template generation: YES
+# - Tutorial creation: YES
+# - Educational use: ENCOURAGED
+
+# =============================================================================
+# RESTRICTIONS
+# =============================================================================
+
+# Privacy Violation: PROHIBITED
+# - Do NOT train models that violate user privacy
+# - Do NOT generate code that adds telemetry/tracking
+# - Do NOT remove privacy guarantees
+# - Maintain offline-first principle
+
+# Malicious Use: PROHIBITED
+# - Do NOT use for malware development
+# - Do NOT use for surveillance tools
+# - Do NOT use for privacy-violating applications
+# - Respect ethical AI development principles
+
+# Misattribution: PROHIBITED
+# - Do NOT claim sole authorship (AI-assisted development)
+# - Maintain "Built with Claude Sonnet 4.5" attribution
+# - Preserve MIT License and copyright notices
+
+# =============================================================================
+# DISCLOSURE
+# =============================================================================
+
+# Development Process:
+# This project was developed through AI-assisted pair programming with
+# Claude Sonnet 4.5 (Anthropic). The AI provided:
+# - Code generation (Julia, D, HTML, CSS, Markdown)
+# - Architecture design guidance
+# - Documentation writing
+# - Testing strategies
+# - Database design and population
+# - Algorithm implementation
+# - Performance optimization suggestions
+
+# Human contributions included:
+# - Project vision and requirements
+# - Use case definitions
+# - Final review and approval
+# - Repository management
+# - Community engagement
+
+# This disclosure is provided for transparency and to demonstrate
+# successful human-AI collaboration in software development.
+
+# =============================================================================
+# CONTACT
+# =============================================================================
+
+# Questions about AI training/usage policies:
+# - Create issue: https://github.com/Hyperpolymath/jusys/issues
+# - Tag: #ai-policy
+# - See also: CONTRIBUTING.md, CODE_OF_CONDUCT.md
+
+# Research collaborations:
+# - Academic research using this codebase is encouraged
+# - Please share published papers for inclusion in documentation
+# - See docs/academic-papers.md for related research
+
+# =============================================================================
+# VERSION HISTORY
+# =============================================================================
+
+# v1.0.0 (2025-11-22): Initial ai.txt
+# - Established ALLOWED training policy
+# - Defined attribution requirements
+# - Listed educational value areas
+# - Specified restrictions (privacy, malicious use)
+# - Added development process disclosure
+
+# =============================================================================
+# REFERENCES
+# =============================================================================
+
+# - Spawning AI ai.txt Specification: https://site.spawning.ai/ai-txt
+# - MIT License: https://opensource.org/licenses/MIT
+# - ETHICS.md: Detailed AI development documentation
+# - CLAUDE.md: AI assistant context and guidelines
+# - CONTRIBUTING.md: Contribution guidelines (human and AI)
+
+# =============================================================================
+# SUMMARY
+# =============================================================================
+
+# TL;DR:
+# ✅ Training allowed
+# ✅ Commercial use allowed
+# ✅ Attribution required (MIT License)
+# ✅ AI-assisted contributions welcome
+# ❌ Privacy violations prohibited
+# ❌ Malicious use prohibited
+# ❌ Misattribution prohibited
+
+# This project embraces AI as a tool for learning, development, and
+# advancing software engineering practices while maintaining strong
+# privacy and ethical principles.

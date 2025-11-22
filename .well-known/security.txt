@@ -1,0 +1,65 @@
+# security.txt - RFC 9116 compliant security contact information
+# https://securitytxt.org/
+
+Contact: https://github.com/Hyperpolymath/jusys/security/advisories/new
+Expires: 2026-11-22T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://github.com/Hyperpolymath/jusys/.well-known/security.txt
+
+# Policy
+Policy: https://github.com/Hyperpolymath/jusys/blob/main/SECURITY.md
+
+# Acknowledgments
+Acknowledgments: https://github.com/Hyperpolymath/jusys/blob/main/SECURITY.md#acknowledgments
+
+# Encryption
+# PGP key: Available upon request for sensitive disclosures
+
+# Scope
+# This security.txt applies to:
+# - Main repository: https://github.com/Hyperpolymath/jusys
+# - All official releases and distributions
+# - Core modules: cli.jl, core.jl, security.jl, io.jl, reports.jl, alternatives.jl, automate.jl, ambient.jl, gui.jl
+# - Tools: migration_planner.jl, compare_alternatives.jl, generate_html_report.jl
+# - Diagnostics add-on: src-diagnostics/d/*.d
+
+# Out of Scope:
+# - Third-party Julia packages (report to package maintainers)
+# - User-created configurations or custom databases
+# - Issues with Julia runtime itself (report to JuliaLang)
+
+# Privacy Guarantee
+# Juisys is 100% local processing with zero network calls.
+# Security issues related to this core privacy guarantee are CRITICAL priority.
+
+# Reporting Guidelines
+# 1. DO NOT publicly disclose until coordinated disclosure date
+# 2. Provide detailed reproduction steps
+# 3. Include version information (run: julia --version)
+# 4. Specify affected modules/files
+# 5. For privacy violations: Run self-audit (Mode 6) and include output
+
+# Response Timeline
+# - Acknowledgment: Within 48 hours
+# - Initial assessment: Within 7 days
+# - Fix timeline: Depends on severity
+#   * CRITICAL (privacy violation, data leak): 24-48 hours
+#   * HIGH (security vulnerability): 7 days
+#   * MEDIUM: 30 days
+#   * LOW: Next release cycle
+
+# Severity Classification
+# CRITICAL: Violation of privacy guarantees (network calls, data persistence, telemetry)
+# HIGH: Security vulnerability affecting user data or system integrity
+# MEDIUM: Moderate security issue with workaround available
+# LOW: Minor security concern or hardening opportunity
+
+# Bug Bounty
+# No formal bug bounty program currently.
+# Acknowledgment in SECURITY.md and release notes for verified reports.
+
+# Additional Information
+# - Privacy-first architecture: See ETHICS.md
+# - GDPR compliance: See ETHICS.md
+# - Self-auditing capabilities: Run Mode 6 from CLI
+# - Code of Conduct: See CODE_OF_CONDUCT.md
