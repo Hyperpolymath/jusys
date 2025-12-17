@@ -1,7 +1,11 @@
-FROM julia:1.8
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Multi-stage build: Julia builder + Wolfi runtime (RSR policy compliant)
+# Primary: wolfi, Fallback: alpine
 
-# Set working directory
-WORKDIR /app
+# Stage 1: Build with Julia
+FROM julia:1.10-alpine AS builder
+
+WORKDIR /build
 
 # Copy project files
 COPY Project.toml ./
@@ -9,17 +13,49 @@ COPY src/ ./src/
 COPY data/ ./data/
 COPY test/ ./test/
 
-# Install dependencies
-RUN julia --project=. -e 'using Pkg; Pkg.instantiate()'
+# Install dependencies and precompile
+RUN julia --project=. -e 'using Pkg; Pkg.instantiate(); Pkg.precompile()'
 
 # Run privacy self-audit during build (fails build if privacy violated)
-RUN julia --project=. -e 'include("src/security.jl"); using .Security; checks = Security.self_audit(); all_passed = all(c -> c.passed, checks); if !all_passed exit(1) end; println("✓ Privacy audit passed during Docker build")'
+RUN julia --project=. -e 'include("src/security.jl"); using .Security; checks = Security.self_audit(); all_passed = all(c -> c.passed, checks); if !all_passed exit(1) end; println("✓ Privacy audit passed during build")'
+
+# Stage 2: Runtime with wolfi-base (RSR policy: wolfi primary, alpine fallback)
+FROM cgr.dev/chainguard/wolfi-base:latest AS runtime
+
+# Install Julia runtime dependencies
+RUN apk add --no-cache \
+    libgcc \
+    libstdc++ \
+    musl \
+    ca-certificates
+
+# Copy Julia installation from builder
+COPY --from=builder /usr/local/julia /usr/local/julia
+ENV PATH="/usr/local/julia/bin:${PATH}"
+
+# Set working directory
+WORKDIR /app
+
+# Copy application from builder
+COPY --from=builder /build/Project.toml ./
+COPY --from=builder /build/src/ ./src/
+COPY --from=builder /build/data/ ./data/
+
+# Copy precompiled Julia packages
+COPY --from=builder /root/.julia /root/.julia
+
+# Create non-root user for security
+RUN adduser -D -u 1000 juisys
+USER juisys
 
 # Set entrypoint to CLI
 ENTRYPOINT ["julia", "--project=.", "-e", "include(\"src/cli.jl\"); using .CLI; CLI.run()"]
 
 # Metadata
-LABEL maintainer="Juisys Project"
-LABEL description="Privacy-first GDPR-compliant application auditing tool"
+LABEL org.opencontainers.image.title="Juisys"
+LABEL org.opencontainers.image.description="Privacy-first GDPR-compliant application auditing tool"
+LABEL org.opencontainers.image.vendor="Hyperpolymath"
+LABEL org.opencontainers.image.licenses="AGPL-3.0-or-later"
+LABEL org.opencontainers.image.source="https://github.com/hyperpolymath/jusys"
 LABEL privacy="100% local processing, no network calls, ephemeral data only"
 LABEL version="1.0.0"

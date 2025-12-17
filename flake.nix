@@ -73,10 +73,10 @@
             cp Project.toml $out/share/juisys/
 
             # Copy documentation
-            cp README.md QUICKSTART.md TUTORIAL.md $out/share/juisys/
+            cp README.adoc QUICKSTART.md TUTORIAL.md $out/share/juisys/
             cp CONTRIBUTING.md CODE_OF_CONDUCT.md $out/share/juisys/
             cp SECURITY.md MAINTAINERS.md CHANGELOG.md $out/share/juisys/
-            cp LICENSE $out/share/juisys/
+            cp LICENSE.txt $out/share/juisys/
 
             # Copy .well-known
             mkdir -p $out/share/juisys/.well-known
@@ -119,7 +119,7 @@
             chmod +x $out/bin/juisys-report
 
             cat > $out/bin/juisys-stats <<EOF
-            #!/usr:bin/env bash
+            #!/usr/bin/env bash
             export JULIA_PROJECT=$out/share/juisys
             exec ${julia}/bin/julia $out/share/juisys/examples/example_database_stats.jl
             EOF

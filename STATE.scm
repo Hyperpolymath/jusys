@@ -12,10 +12,10 @@
 ;;;============================================================================
 
 (define metadata
-  '((version . "0.1.0")
+  '((version . "0.1.1")
     (schema-version . "1.0")
     (created . "2025-12-15")
-    (updated . "2025-12-15")
+    (updated . "2025-12-17")
     (project . "jusys")
     (repo . "github.com/hyperpolymath/jusys")))
 
@@ -40,19 +40,24 @@
 ;;;============================================================================
 
 (define current-position
-  '((phase . "v0.1 - Initial Setup and RSR Compliance")
-    (overall-completion . 25)
+  '((phase . "v0.1.1 - Security Hardening and RSR Compliance")
+    (overall-completion . 40)
 
     (components
      ((rsr-compliance
        ((status . "complete")
         (completion . 100)
-        (notes . "SHA-pinned actions, SPDX headers, multi-platform CI")))
+        (notes . "All workflows SHA-pinned, SPDX headers, permissions declarations")))
+
+      (security
+       ((status . "complete")
+        (completion . 100)
+        (notes . "SHA-pinned all GitHub Actions, Containerfile uses wolfi-base, non-root user")))
 
       (documentation
        ((status . "foundation")
-        (completion . 30)
-        (notes . "README exists, META/ECOSYSTEM/STATE.scm added")))
+        (completion . 35)
+        (notes . "README, META/ECOSYSTEM/STATE.scm, comprehensive .well-known")))
 
       (testing
        ((status . "minimal")
@@ -62,13 +67,18 @@
       (core-functionality
        ((status . "in-progress")
         (completion . 25)
-        (notes . "Initial implementation underway")))))
+        (notes . "Julia source modules defined, needs implementation")))))
 
     (working-features
-     ("RSR-compliant CI/CD pipeline"
+     ("RSR-compliant CI/CD pipeline with SHA-pinned actions"
       "Multi-platform mirroring (GitHub, GitLab, Bitbucket)"
-      "SPDX license headers on all files"
-      "SHA-pinned GitHub Actions"))))
+      "SPDX license headers on all workflow files"
+      "OSSF Scorecard integration"
+      "SLSA Level 3 provenance generation"
+      "Wolfi-based container image (RSR compliant)"
+      "Security policy enforcement (weak crypto, HTTP URLs, secrets)"
+      "RFC 9116 security.txt validation"
+      "EditorConfig and TruffleHog secret scanning"))))
 
 ;;;============================================================================
 ;;; ROUTE TO MVP
@@ -151,6 +161,16 @@
 
 (define session-history
   '((snapshots
+     ((date . "2025-12-17")
+      (session . "security-hardening")
+      (accomplishments
+       ("SHA-pinned all GitHub Actions in workflows"
+        "Added SPDX license headers to all workflow files"
+        "Added permissions declarations to all workflows"
+        "Updated Containerfile to use wolfi-base (RSR compliant)"
+        "Fixed flake.nix typos (usr:bin -> usr/bin, file references)"
+        "Updated STATE.scm with current project status"))
+      (notes . "Security review and RSR compliance hardening"))
      ((date . "2025-12-15")
       (session . "initial-state-creation")
       (accomplishments
@@ -184,11 +204,11 @@
 
 (define state-summary
   '((project . "jusys")
-    (version . "0.1.0")
-    (overall-completion . 25)
+    (version . "0.1.1")
+    (overall-completion . 40)
     (next-milestone . "v0.2 - Core Functionality")
     (critical-blockers . 0)
     (high-priority-issues . 0)
-    (updated . "2025-12-15")))
+    (updated . "2025-12-17")))
 
 ;;; End of STATE.scm
