@@ -72,4 +72,73 @@ defmodule SystemObservatory.Metrics.StoreTest do
       assert SystemObservatory.Metrics.Store.all() == []
     end
   end
+
+  describe "provenance tracking (CRIT-003)" do
+    test "records source when provided" do
+      :ok = SystemObservatory.Metrics.Store.record("cpu", 50, %{}, source: "node-scanner")
+      [metric] = SystemObservatory.Metrics.Store.all()
+
+      assert metric.source == "node-scanner"
+    end
+
+    test "defaults source to 'unknown' when not provided" do
+      :ok = SystemObservatory.Metrics.Store.record("cpu", 50)
+      [metric] = SystemObservatory.Metrics.Store.all()
+
+      assert metric.source == "unknown"
+    end
+
+    test "records derived_at timestamp" do
+      :ok = SystemObservatory.Metrics.Store.record("cpu", 50)
+      [metric] = SystemObservatory.Metrics.Store.all()
+
+      assert %DateTime{} = metric.derived_at
+    end
+
+    test "all metrics are marked as advisory" do
+      :ok = SystemObservatory.Metrics.Store.record("cpu", 50)
+      [metric] = SystemObservatory.Metrics.Store.all()
+
+      assert metric.advisory == true
+    end
+  end
+
+  describe "TTL and staleness" do
+    test "records ttl_seconds with default value" do
+      :ok = SystemObservatory.Metrics.Store.record("cpu", 50)
+      [metric] = SystemObservatory.Metrics.Store.all()
+
+      assert metric.ttl_seconds == 3600
+    end
+
+    test "records custom ttl when provided" do
+      :ok = SystemObservatory.Metrics.Store.record("cpu", 50, %{}, ttl: 60)
+      [metric] = SystemObservatory.Metrics.Store.all()
+
+      assert metric.ttl_seconds == 60
+    end
+
+    test "stale?/1 returns false for fresh metric" do
+      :ok = SystemObservatory.Metrics.Store.record("cpu", 50)
+      [metric] = SystemObservatory.Metrics.Store.all()
+
+      assert SystemObservatory.Metrics.Store.stale?(metric) == false
+    end
+
+    test "all_fresh/0 returns only non-stale metrics" do
+      :ok = SystemObservatory.Metrics.Store.record("cpu", 50)
+      fresh = SystemObservatory.Metrics.Store.all_fresh()
+
+      assert length(fresh) == 1
+    end
+
+    test "get_fresh/1 returns only non-stale metrics for name" do
+      :ok = SystemObservatory.Metrics.Store.record("cpu", 50)
+      :ok = SystemObservatory.Metrics.Store.record("memory", 70)
+      fresh = SystemObservatory.Metrics.Store.get_fresh("cpu")
+
+      assert length(fresh) == 1
+      assert hd(fresh).name == "cpu"
+    end
+  end
 end

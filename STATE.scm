@@ -3,21 +3,25 @@
 
 (define project-state
   `((metadata
-      ((version . "1.1.0")
+      ((version . "1.2.0")
        (schema-version . "1")
        (created . "2026-01-02T19:45:00+00:00")
-       (updated . "2026-01-03T12:00:00+00:00")
+       (updated . "2026-01-09T12:00:00+00:00")
        (project . "System Observatory")
        (repo . "system-observatory")))
 
     (current-position
-      ((phase . "Phase 1: Core Implementation")
-       (overall-completion . 40)
+      ((phase . "Phase 2: Core MVP")
+       (overall-completion . 75)
        (working-features
         ("Correlator GenServer"
-         "Metrics store"
+         "Metrics store with TTL/provenance"
          "Application supervisor"
-         "Elixir tests"))))
+         "Bundle ingestion from Operating Theatre"
+         "Recommendation output module"
+         "CLI commands (status, ingest, recommend, query)"
+         "Forecasting module with trend prediction"
+         "Full test coverage"))))
 
     (route-to-mvp
       ((milestones
@@ -35,10 +39,12 @@
                   (status . "complete")))
          (v1.2 . ((items . ("Metrics schema finalization"
                             "Run bundle ingestion"
-                            "Recommendation output format"))
-                  (status . "pending")))
-         (v1.3 . ((items . ("CLI commands"
-                            "Dashboard MVP"))
+                            "Recommendation output format"
+                            "CLI commands"
+                            "Forecasting module"))
+                  (status . "complete")))
+         (v1.3 . ((items . ("Dashboard MVP"
+                            "Real-time system health view"))
                   (status . "planned")))))))
 
     (blockers-and-issues
@@ -48,9 +54,9 @@
        (low . ())))
 
     (critical-next-actions
-      ((immediate . ("Finalize metrics schema in system-tools-contracts"))
-       (this-week . ("Add CLI entry points"))
-       (this-month . ("Dashboard prototype"))))
+      ((immediate . ("Run full test suite"))
+       (this-week . ("Dashboard prototype"))
+       (this-month . ("Integration with Operating Theatre"))))
 
     (session-history
       ((("2026-01-02" . ((accomplishments . ("Initial repo creation"
@@ -66,5 +72,12 @@
                                               "Updated all cross-repo references"
                                               "Added GitHub workflows (CI, CodeQL, Scorecard)"
                                               "Version bumped to 1.1.0"))))
-       ("2026-01-03-session2" . ((accomplishments . ("Added personal-sysadmin to ECOSYSTEM.scm"
-                                                      "Verified cross-repo references are correct")))))))))
+        ("2026-01-03-session2" . ((accomplishments . ("Added personal-sysadmin to ECOSYSTEM.scm"
+                                                      "Verified cross-repo references are correct"))))
+        ("2026-01-09" . ((accomplishments . ("Implemented BundleIngestion module for Operating Theatre"
+                                              "Implemented Recommendation module with JSON output"
+                                              "Implemented CLI module (status, ingest, recommend, query)"
+                                              "Implemented Forecasting module with linear regression"
+                                              "Added tests for TTL/provenance features"
+                                              "Added tests for all new modules"
+                                              "Version bumped to 1.2.0")))))))))

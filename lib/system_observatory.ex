@@ -22,7 +22,7 @@ defmodule SystemObservatory do
   * **Forecasting** — predict resource exhaustion
   """
 
-  @version "1.1.0"
+  @version "1.2.0"
   @schema_version "1.0"
 
   @doc """

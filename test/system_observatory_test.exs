@@ -6,7 +6,7 @@ defmodule SystemObservatoryTest do
 
   describe "version/0" do
     test "returns version string" do
-      assert SystemObservatory.version() == "1.1.0"
+      assert SystemObservatory.version() == "1.2.0"
     end
   end
 
